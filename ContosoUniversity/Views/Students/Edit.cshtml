@@ -1,15 +1,21 @@
 ﻿@model ContosoUniversity.Models.Student
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Student";
 }
 
-<h1>Edit</h1>
+<h1>Edit Student Information</h1>
 
-<h4>Student</h4>
+<h4>@Html.DisplayFor(model => model.FirstMidName) @Html.DisplayFor(model => model.LastName)</h4>
 <hr />
+<br />
+<br />
+<br />
+
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" id="index">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
@@ -30,14 +36,13 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index">Back to List</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -1,17 +1,20 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.Course>
 @{
-    ViewData["Title"] = "Courses";
+    ViewData["Title"] = "Courses List";
 }
 
-<h2>Courses</h2>
+<h2>Courses List</h2>
 
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add Course</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
+    <tr class="titleTr">
+        <td class="titleTd">COURSE LIST</td>
+        <td colspan="5"></td>
+    </tr>
+        <tr class="titleHead">
             <th>
                 @Html.DisplayNameFor(model => model.CourseID)
             </th>
@@ -26,7 +29,7 @@
             </th>
             <th></th>
         </tr>
-    </thead>
+  
     <tbody>
         @foreach (var item in Model)
         {

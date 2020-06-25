@@ -1,28 +1,31 @@
 ﻿@model ContosoUniversity.Models.SchoolViewModels.InstructorIndexData
 
 @{
-    ViewData["Title"] = "Instructors";
+    ViewData["Title"] = "Instructors List";
 }
 
-<h2>Instructors</h2>
+<h2>List of Instructors</h2>
 
 
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add Instructor</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Hire Date</th>
-            <th>Office</th>
-            <th>Courses</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
+    <tr class="titleTr">
+        <td class="titleTd">INSTRUCTORS</td>
+        <td colspan="6"></td>
+    </tr>
+    <tr class="titleHead">
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Hire Date</th>
+        <th>Office</th>
+        <th>Courses</th>
+        <th></th>
+
+    </tr>
+
     <tbody>
         @foreach (var item in Model.Instructors)
         {
@@ -68,9 +71,13 @@
 </table>
 @if (Model.Courses != null)
 {
-    <h3>Courses Taught by Selected Instructor</h3>
+    
     <table class="table">
-        <tr>
+        <tr class="titleTr">
+            <td class="titleTd">Courses Taught by Selected Instructor</td>
+            <td colspan="4"></td>
+        </tr>
+        <tr class="titleHead">
             <th></th>
             <th>Number</th>
             <th>Title</th>
@@ -105,11 +112,13 @@
 
 @if (Model.Enrollments != null)
 {
-    <h3>
-        Students Enrolled in Selected Course
-    </h3>
+    
     <table class="table">
-        <tr>
+        <tr class="titleTr">
+            <td class="titleTd">Students Enrolled in Selected Course</td>
+            <td colspan="2"></td>
+        </tr>
+        <tr class="titleHead">
             <th>Name</th>
             <th>Grade</th>
         </tr>

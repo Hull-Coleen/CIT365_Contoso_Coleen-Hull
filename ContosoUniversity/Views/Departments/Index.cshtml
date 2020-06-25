@@ -1,35 +1,40 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.Department>
 
 @{
-    ViewData["Title"] = "Departments";
+    ViewData["Title"] = "Department List";
 }
 
-<h1>Departments</h1>
+<h1>Department List</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Add Department</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Budget)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RowVersion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Administrator)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+    <tr class="titleTr">
+        <td class="titleTd">DEPARTMENT LIST</td>
+        <td colspan="6"></td>
+    </tr>
+
+
+    <tr class="titleHead">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RowVersion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Administrator)
+        </th>
+        <th></th>
+    </tr>
+
     <tbody>
         @foreach (var item in Model)
         {
