@@ -22,7 +22,7 @@
         <th>Hire Date</th>
         <th>Office</th>
         <th>Courses</th>
-        <th></th>
+        <th id="tr"></th>
 
     </tr>
 
@@ -34,7 +34,7 @@
             {
                 selectedRow = "success";
             }
-            <tr class="@selectedRow">
+            <tr class="@selectedRow" >
 
                 <td>
                     @Html.DisplayFor(modelItem => item.LastName)
@@ -59,7 +59,7 @@
                         }
                     }
                 </td>
-                <td>
+                <td id="tr">
                     <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
@@ -81,7 +81,8 @@
             <th></th>
             <th>Number</th>
             <th>Title</th>
-            <th>Department</th>
+            <th id="tr">Department</th>
+
         </tr>
 
         @foreach (var item in Model.Courses)
@@ -91,7 +92,7 @@
             {
                 selectedRow = "success";
             }
-            <tr class="@selectedRow">
+            <tr class="@selectedRow" >
                 <td>
                     @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
                 </td>
@@ -101,7 +102,7 @@
                 <td>
                     @item.Title
                 </td>
-                <td>
+                <td id="tr">
                     @item.Department.Name
                 </td>
             </tr>
@@ -120,15 +121,15 @@
         </tr>
         <tr class="titleHead">
             <th>Name</th>
-            <th>Grade</th>
+            <th id="tr"> Grade</th>
         </tr>
         @foreach (var item in Model.Enrollments)
         {
-            <tr>
+            <tr >
                 <td>
                     @item.Student.FullName
                 </td>
-                <td>
+                <td id="tr">
                     @Html.DisplayFor(modelItem => item.Grade)
                 </td>
             </tr>

@@ -4,7 +4,7 @@
 }
 
 <h2>Courses List</h2>
-
+<hr />
 
 <p>
     <a asp-action="Create">Add Course</a>
@@ -27,7 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Department)
             </th>
-            <th></th>
+            <th id="tr"></th>
         </tr>
   
     <tbody>
@@ -46,7 +46,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Department.Name)
             </td>
-            <td>
+            <td id="tr">
                 <a asp-action="Edit" asp-route-id="@item.CourseID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CourseID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.CourseID">Delete</a>

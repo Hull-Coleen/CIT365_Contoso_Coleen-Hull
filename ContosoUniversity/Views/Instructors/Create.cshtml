@@ -4,19 +4,17 @@
     ViewData["Title"] = "Add Instructor";
 }
 
-<h1>Add a New Instructor</h1>
+<h2>Add a New Instructor</h2>
 
-<hr />
+<hr /><br />
+
 <div class="row">
-    <div class="col-md-2" ></div>
-        <div class="col-md-8" id="index">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="LastName" class="control-label"></label>
-                    <input asp-for="LastName" class="form-control" />
-                    <span asp-validation-for="LastName" class="text-danger"></span>
-                </div>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
                 <div class="form-group">
                     <label asp-for="FirstMidName" class="control-label"></label>
                     <input asp-for="FirstMidName" class="form-control" />
@@ -25,49 +23,61 @@
                 <div class="form-group">
                     <label asp-for="HireDate" class="control-label"></label>
                     <input asp-for="HireDate" class="form-control" />
-                    <span asp-validation-for="HireDate" class="text-danger"></span>
+                    <span asp-validat5ion-for="HireDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="OfficeAssignment.Location" class="control-label"></label>
                     <input asp-for="OfficeAssignment.Location" class="form-control" />
                     <span asp-validation-for="OfficeAssignment.Location" class="text-danger" />
                 </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <table>
-                            <tr>
-                                @{
-                                    int cnt = 0;
-                                    List<ContosoUniversity.Models.SchoolViewModels.AssignedCourseData> courses = ViewBag.Courses;
-
-                                    foreach (var course in courses)
-                                    {
-                                        if (cnt++ % 3 == 0)
-                                        {
-                                        @:</tr><tr>
-                                        }
-                                        @:<td>
-                                            <input type="checkbox"
-                                                   name="selectedCourses"
-                                                   value="@course.CourseID"
-                                                   @(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
-                                            @course.CourseID @:  @course.Title
-                                        @:</td>
-                                    }
-                                @:</tr>
-                                }
-                            </table>
-                        </div>
-                    </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                    <a asp-action="Index">Back to List</a>
-                </div>
-                </form>
             </div>
         </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-offset-2 col-md-10">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                List<ContosoUniversity.Models.SchoolViewModels.AssignedCourseData> courses = ViewBag.Courses;
 
-        @section Scripts {
-            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }
+                                foreach (var course in courses)
+                                {
+                                    if (cnt++ % 5 == 0)
+                                    {
+                                    @:</tr><tr id="tr">
+                                    }
+                                    @:<td id="tr">
+                                        <input type="checkbox"
+                                               name="selectedCourses"
+                                               value="@course.CourseID"
+                                               @(Html.Raw(course.Assigned ? "checked=\"checked\"" : "")) />
+                                        @course.CourseID @:  @course.Title
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                    </table><br /><br />
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

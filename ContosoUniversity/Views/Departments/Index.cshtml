@@ -32,13 +32,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Administrator)
         </th>
-        <th></th>
+        <th id="tr"></th>
     </tr>
 
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr  >
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
@@ -54,7 +54,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Administrator.FullName)
                 </td>
-                <td>
+                <td id="tr">
                     <a asp-action="Edit" asp-route-id="@item.DepartmentID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.DepartmentID">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.DepartmentID">Delete</a>

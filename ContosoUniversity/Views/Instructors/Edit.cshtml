@@ -4,38 +4,45 @@
     ViewData["Title"] = "Edit Instructors Info";
 }
 
-<h1>Edit Instructor Information</h1>
+    <h2>Edit Instructor Information for @Html.DisplayFor(model => model.FirstMidName) @Html.DisplayFor(model => model.LastName)</h2>
 
-<h4>@Html.DisplayFor(model => model.FirstMidName) @Html.DisplayFor(model => model.LastName)</h4>
-<hr />
+<hr /><br />
 <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8" id="index">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ID" />
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="FirstMidName" class="control-label"></label>
+                    <input asp-for="FirstMidName" class="form-control" />
+                    <span asp-validation-for="FirstMidName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HireDate" class="control-label"></label>
+                    <input asp-for="HireDate" class="form-control" />
+                    <span asp-validat5ion-for="HireDate" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FirstMidName" class="control-label"></label>
-                <input asp-for="FirstMidName" class="form-control" />
-                <span asp-validation-for="FirstMidName" class="text-danger"></span>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OfficeAssignment.Location" class="control-label"></label>
+                    <input asp-for="OfficeAssignment.Location" class="form-control" />
+                    <span asp-validation-for="OfficeAssignment.Location" class="text-danger" />
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="HireDate" class="control-label"></label>
-                <input asp-for="HireDate" class="form-control" />
-                <span asp-validation-for="HireDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OfficeAssignment.Location" class="control-label"></label>
-                <input asp-for="OfficeAssignment.Location" class="form-control" />
-                <span asp-validation-for="OfficeAssignment.Location" class="text-danger" />
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-3 col-md-9">
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-offset-2 col-md-10">
                     <table>
                         <tr>
                             @{
@@ -44,11 +51,11 @@
 
                                 foreach (var course in courses)
                                 {
-                                    if (cnt++ % 3 == 0)
+                                    if (cnt++ % 5 == 0)
                                     {
-                                    @:</tr><tr>
+                                    @:</tr><tr id="tr">
                                     }
-                                    @:<td>
+                                    @:<td id="tr">
                                         <input type="checkbox"
                                                name="selectedCourses"
                                                value="@course.CourseID"
@@ -58,15 +65,16 @@
                                 }
                             @:</tr>
                             }
-                        </table>
+                        </table><br /><br />
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                            <a asp-action="Index">Back to List</a>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                    <a asp-action="Index">Back to List</a>
-                </div>
-            </form>
-        </div>
+
+            </div>
+        </form>
     </div>
 
     @section Scripts {

@@ -73,7 +73,7 @@ namespace ContosoUniversity.Controllers
                 students = students.OrderBy(e => EF.Property<object>(e, sortOrder));
             }
 
-            int pageSize = 3;
+            int pageSize = 4;
             return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(),
                 pageNumber ?? 1, pageSize));
         }
