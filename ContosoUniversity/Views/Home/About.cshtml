@@ -2,30 +2,52 @@
 @model IEnumerable<ContosoUniversity.Models.SchoolViewModels.EnrollmentDateGroup>
 
 @{
-    ViewData["Title"] = "Student Body Statistics";
+    ViewData["Title"] = "About Contoso";
 }
+<div id="index">
+        <h2>About Contoso</h2>
+        <p>
+            Founded in 1856  is the state’s flagship university and one of the original land-grant institutions in America. As a 
+            member of the Association of American Universities, the Big Ten Conference and the Coalition for College, Contoso is consistently
+            recognized as one of the preeminent public research universities in the United States. Our students are fearless innovators, 
+            entrepreneurs, creators and doers. Our faculty includes Nobel laureates, Pulitzer Prize winners, members of the national 
+            academies and scores of Fulbright scholars, making Contoso a global  leader in research, entrepreneurship and innovation.
+        </p>
+</div>
+<br /><br /><br />
+            <div class="row">
 
-<h2>Student Body Statistics</h2>
+                <div class="col-md-6">
+                    <h1> Dean of Admissions</h1>
+                    <hr /><br />
+                    <h2>Coleen Hull</h2>
+                    <h2>Phone: 123-456-7890</h2>
+                    <h2>Email: 123@school.edu</h2>
+                </div>
+                <div class="col-md-2"></div>
+                    <div class="col-md-4" id="statistics">
+                        <h2>Student Body Statistics</h2><br /><br />
+                        <table id="statistics">
+                            <tr class="titleHead">
+                                <th>
+                                    Enrollment Date
+                                </th>
+                                <th>
+                                    Students
+                                </th>
+                            </tr>
 
-<table>
-    <tr>
-        <th>
-            Enrollment Date
-        </th>
-        <th>
-            Students
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnrollmentDate)
-            </td>
-            <td>
-                @item.StudentCount
-            </td>
-        </tr>
-    }
-</table>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                                    </td>
+                                    <td>
+                                        @item.StudentCount
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>

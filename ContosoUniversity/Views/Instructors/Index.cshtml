@@ -6,7 +6,9 @@
 
 <h2>List of Instructors</h2>
 
-
+<hr />
+<br />
+<br />
 
 <p>
     <a asp-action="Create">Add Instructor</a>
@@ -34,7 +36,7 @@
             {
                 selectedRow = "success";
             }
-            <tr class="@selectedRow" >
+            <tr class="@selectedRow">
 
                 <td>
                     @Html.DisplayFor(modelItem => item.LastName)
@@ -71,7 +73,7 @@
 </table>
 @if (Model.Courses != null)
 {
-    
+
     <table class="table">
         <tr class="titleTr">
             <td class="titleTd">Courses Taught by Selected Instructor</td>
@@ -92,7 +94,7 @@
             {
                 selectedRow = "success";
             }
-            <tr class="@selectedRow" >
+            <tr class="@selectedRow">
                 <td>
                     @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
                 </td>
@@ -113,7 +115,7 @@
 
 @if (Model.Enrollments != null)
 {
-    
+
     <table class="table">
         <tr class="titleTr">
             <td class="titleTd">Students Enrolled in Selected Course</td>
@@ -125,7 +127,7 @@
         </tr>
         @foreach (var item in Model.Enrollments)
         {
-            <tr >
+            <tr>
                 <td>
                     @item.Student.FullName
                 </td>

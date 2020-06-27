@@ -2,27 +2,42 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
-
-a {
+#nav {
+    color: white;
+    border: none;
+    background-color: #0e4482;
+}
+.navbar {
+    background-color: #0e4482;
+}
+a , #search{
     font-weight: bold;
     color: #0e4482;
-
+    border: 1px solid #0e4482;
+    padding: 4px;
+   // padding-top: 4px;
+    border-radius: 5px;
+    background-color: white;
+}
+.form-control {
+    border: 1px solid #0e4482;
+    border-radius: 5px;
+    font-weight: bold;
 }
 /* You could use :after - it doesn't really matter */
 body {
-
-        width: 100%;
-        height: 100%;
-
-        background-image: url('/images/school1.gif');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
+    font-family: 'Zilla Slab'; 
+    font-weight: bold;
+   // height: 100%;
+    background-image: url('/images/school1.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 .index, #index {
     background-color: white;
     padding: 10px;
@@ -62,18 +77,40 @@ table {
     border-right: 1px solid #0e4482;
 }
 
-.jumbotron {
-    background-color:white;
+.welcome {
+    background-color: white;
     text-align: center;
-    height: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    color: #0e4482;
+}
+#under {
+    border-bottom: 1px solid #0e4482;
+    font-weight: bold;
 }
 
+#statistics {
+    text-align: center;
+    margin: auto;
+    width: 80% !important;
+}
 hr {
     border-width: 2px;
     color: #0e4482;
     border-style: double;
 }
-
+.btn-primary {
+    background-color: #0e4482;
+    padding: 2px;
+    border: none;
+}
+.btn-danger {
+    background-color: #cc0000;
+    padding: 2px;
+    // padding-left: 4px;
+    padding-right: 4px;
+    border: none;
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */

@@ -20,9 +20,10 @@ namespace ContosoUniversity.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
-
+        [Display(Name = "Instructor Name")]
         public int? InstructorID { get; set; }
         [Timestamp]
+        [Display(Name = "Row Version")]
         public byte[] RowVersion { get; set; }
 
         public Instructor Administrator { get; set; }
